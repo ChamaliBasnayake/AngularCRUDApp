@@ -1,0 +1,45 @@
+<div class="row">
+<div class="col-sm">
+    <h4>Products</h4>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <a href="#" class="float-right fa fa-file fa-lg action-label" routerLink="add"> Add New</a>&nbsp;&nbsp;
+  </div>
+  
+</div>
+
+
+<div class="row">
+    <div class="col-sm">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Code</th>
+                <th scope="col">Category</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Sales Rate</th>
+                <th scope="col">Purchase Rate</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor ="let product of products | async; index as i">
+                <td>{{ i+1 }}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.code}}</td>
+                <td>{{product.category.name}}</td>
+                <td>{{product.unit.name}}</td>
+                <td>{{product.salesRate}}</td>
+                <td>{{product.purchaseRate}}</td>
+                <td><button class='fa fa-folder-o' (click)='viewProduct(product)'></button></td>
+                <td><button class='delete-label fa fa-trash-o' (click)='deleteProduct(product)'></button></td>
+              </tr>
+            
+            </tbody>
+          </table>
+    </div>
+</div>
